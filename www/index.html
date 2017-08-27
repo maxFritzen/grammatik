@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+<title>Grammatik-app</title>
+</head>
+<body>
+
+<div id="wrapper">
+    <div id="menu">
+    <ul>
+        <li onclick="practice();">Övning!</li>   
+        <li onclick="test();">Test!</li>           
+    </ul>
+    
+    </div>
+<div id="practice">
+<div id="back" onclick="showMenu();">Tillbaka</div>
+<div id="header">
+    
+    <h2>Välj ordet som är ett <br> <span id="typavOrd">..</span></h2>
+    
+</div>
+<div id="list">
+ 
+    
+   <ul>
+    <li class="listOrd" id = "listOrd1"></li>      
+    <li class="listOrd" id = "listOrd2"></li>
+    <li class="listOrd" id = "listOrd3"></li>
+  
+    </ul> 
+    
+</div>
+   
+
+<div class="alert" >
+    <span class="popuptext" id="success" onclick=" practice();">Rätt!</span>
+    <span class="popuptext" id="wrong" >Fel, försök igen</span>
+</div>
+<div id="correct">
+        
+    <input type="button" value="Rätta!"  class="checkAnswerButton" onclick="checkAnswer();">  
+</div>
+</div><!--/practice -->
+    
+<!-- ******TEST*****-->
+<div id="test">
+    <div id="back" onclick="showMenu();">Tillbaka</div>
+    <div><span id="currentQuestion"></span>/<span id="numberOfQuestions"></span></div>
+    <div id="header">
+            
+            <h2>Välj ordet som är ett <br> <span id="typavOrdtest">...</span></h2>
+
+    </div>
+    <div id="list">
+       <ul>
+        <li class="listOrd" id = "listOrdtest1"></li>      
+        <li class="listOrd" id = "listOrdtest2"></li>
+        <li class="listOrd" id = "listOrdtest3"></li>
+
+        </ul> 
+
+    </div>
+
+
+    <div class="alert" >
+
+        <span class="results" id="resultsMessage">lol</span>
+    </div>
+    <div id="correct">
+
+        <input type="button" value="Nästa fråga!" id="testNextQuestion" class="checkAnswerButton" onclick="checkAnswertest(); test();">  
+        <input type="button" value="Rätta!" id="testResultButton" class="checkAnswerButton" onclick="checkAnswertest();showResult();">  
+    </div>
+    
+</div><!--/test -->
+</div><!--/wrapper-->
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="js/javaScript.js"></script>
+<script type="text/javascript">
+     //app.initialize(); den här behövs inte om inte app.
+    
+</script>
+ 
+</body>
+</html>

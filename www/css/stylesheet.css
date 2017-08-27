@@ -1,0 +1,156 @@
+* {
+    box-sizing: border-box;
+} 
+html, body {
+    text-align: center;
+    margin: 0;
+    
+}
+
+#wrapper {
+    height: 100vh; 
+    position:relative;
+    border:1px solid black;
+    
+}
+#practice,#test {
+    display:none;
+}
+
+#back{
+    text-decoration: underline;
+}
+#back:hover{
+    cursor:pointer;
+}
+
+#header {
+    
+    border:1px solid black;
+    height:20%;
+    display: flex;            
+    justify-content: center;  
+    align-items: center;      
+    align-content: center;
+}
+#list{
+    
+}
+#list ul{
+    
+    padding:0;
+}
+li {
+    
+    border-radius: 5px;
+    display: block;
+    border:1px solid black;
+    padding:0.5em;   
+    margin:0 auto;
+    font-size:2em;
+}
+li:hover {
+   cursor:pointer;
+}
+
+.selected {
+    background-color:green;
+}
+
+/*BUTTONS */
+#testResultButton {
+    display:none;
+}
+
+/* ALERT */
+
+
+.alert{
+    position:relative;
+}
+
+.results{
+    display:inline-block;   
+    visibility: hidden;
+    width: 80%;   
+    background-color: grey;
+    border:1px solid black;
+    font-size:2em;   
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    top:35%;
+    left:10%;
+}
+/* Popup text for right and wrong */
+.popuptext{
+    display:inline-block;   
+    visibility: hidden;
+    width: 80%;   
+    background-color: #555;
+    font-size:2em;   
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    top:35%;
+    left:10%;
+    
+}
+
+.alert:hover{
+    cursor:pointer;
+}
+
+#success, #successtest {background-color: #4CAF50;}
+#wrong, #wrongtest {background-color: red;} 
+
+/* Toggle this class - hide and show the popup */
+.alert .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;} 
+    to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+}
+#typavOrd {
+    font-size:120%;
+    text-decoration:underline;
+}
+#correct{
+    height:10%;
+    
+}
+.checkAnswerButton {
+    font-size:1.5em;
+    width: 30%;  
+    height:100%;
+    border-radius:2em;
+    box-shadow:2px 2px;
+    background-color:skyblue;
+    outline:none;
+}
+
+/*For ipad and bigger */
+@media only screen and (min-width: 640px) {
+ 
+li {
+    
+    display: inline-block;
+    border:1px solid black;
+    padding:0.5em;
+    width:30%;
+    margin:0 auto;
+    font-size:2em;
+}
+}

@@ -1,0 +1,130 @@
+VERB SUBSTANTIV ADJEKTIV (ska vara speciella färger, enligt karlstadmodell)
+
+
+Massa ord:
+	får dra dom till rätt grupp.
+
+Alternativ:
+	"Välj orden som är SUBSTANTIV:"
+	så får man klicka på orden som är det, sen trycka klar, sen rättas.
+Testa den här först. Det känns rimligare för mindre skärm också tycker jag.
+
+"
+Klicka på orden/ordet som är SUBSTANTIV
+
+|Springer| |Äpple| |Stark| 
+
+|KLAR|
+
+"
+Ordet man klickar på lyses upp, för att visa att det är valt.
+Klicka på KLAR, meddelande beroende på fel eller rätt. Om fel, gör om. Om rätt, nya ord.
+
+Är det Cordova jag ska använda mig utav? Angular är bara för web fattar jag det som.kanske helt olika saker...
+Kan också tänka göra en hemsida av det egentligen.Men börja med app.cordova verkar rätt.
+Native funktioner behövs ju dock inte. Nämen vafan, använda Angular ska nog funka ändå.
+https://developer.chrome.com/apps/angular_framework
+Fast det här är ju för chrome och inte en app man installerar.Eller?
+Använd cordova! Kanske går att använda angular också ändå. Alltså använda båda. 
+Det är olika saker liksom.
+Commands to get started:
+gå in i mappen,
+cd appar/grammatikApp
+cordova build (behövs om använda android studio fattar jag det som. vilken kan användas för debugging.)
+cordova run android
+
+07-23-2017:
+Går att välja osv.
+Men har problem med att kolla objektet som är valt, det blir "object Object" när jag använder alert. Fattas något.
+
+asså. Varför ska jag ens använda angular för? Känns som det bara gör det krångligt nu. Kan väl köra directly javascript?
+Kör ren javascript! fattas att kunna klicka och välja, sedan rättas.
+
+Selecta:
+Går bara att ha en selected. Om en annan klickas på,ska den första bli de-selected.
+Nu går det att välja, bara en är vald. De andras "selected"-klass försvinner. Grymt.
+
+Rättning:
+Kolla vilket id som har klass "selected".
+Jämför ordTyp med listOrds array-parent(alltså vilken array den är i.)
+ANGÅENDE RÄTTNING NU:
+Jag kollar bara vilket som är valt, inte ifall det stämmer.
+Nu fungerar väl allt egentligen. Småfula lösningar men vafaaan. 
+Nu äre lite design som gäller dårå!
+
+INSER FEL NU. Det måste ju finnas minst en som är rätt att välja på.
+LÖST :D.
+
+Jag vill att message ska vara över allt, som en alert. dialog, jquery var nåt. men kul att inte använda jquery.
+
+Behövs:
+Meddelande som ser annorlunda ut beroende om rätt eller fel.
+Meddelande kommer upp, försvinner när man klickar på det? 
+https://www.w3schools.com/howto/howto_js_alert.asp
+Fixa onclick för att stänga ner alert, tänk på touch. Tror vanilla JS funkar bra, väl?='.
+Fixa alert som en popup, att den syns över allt. Tror visibility istället för display är the way 2 go.
+popup https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_popup skulle funka jättebra
+för tex att man klickar på typavOrd och så kommer det upp en exempelmening. 
+Men för alert känns det som att det är lite fel, men går att använda lite av det.
+
+BUGG: det blir alltid samma alternativ, ajdektiv får alltid "rolig" har med rand att göra.LÖST
+
+ANvända json för lagring av ord? Är det ens nödvändigt?
+
+Text går utanför ordrutan! Ska texten bli mindre? Känns som den kan bli väldigt liten isåfall.
+Kan väl inte vara beroende av korta ord...Skulle kunna ha listan på höjd istället för åt sidan som det är nu.
+
+2016-08-23
+TANKE:
+Om man väljer och det är fel, borde väl valet också bli rött. KAN ju välja att inte ha "rätta"-knapp, och det kollas direkt
+ men det känns också lite hårt, eller?
+MENY:
+Ska jag bara ha flera filer? eller ska det köras AJAX-style?äh, börja med en fil som får heta start.Fast hur funkar det då med cordova?
+Äh, kör AJAX dårå? Det här funkar bra!
+
+TEST:
+Knasar med ID på sättet jag gjort markup nu. Så inga ord syns i test, men de ändras i practice.
+Fullösning är att ändra ID till class.MEN...vet inte.
+Väldigt onödigt att det körs 2 saker samtidigt.
+Går såklart att bara ändra ID på allt inom test.Men då blir inte koden så återanvändbar längre.
+Kanske kan göra nån loop som kollar <li> bara?fast det kanske kommer bli samma problem.
+nämen skriv om skiten för test då. Är ju bara att ändra på vissa stället. Det blir mer kod,
+men inte så krångligt. Let's do it! Lägger till"test" på alla bara. 
+Vänta nu. det är egentligen bara där ordet ändras som det behövs ändras.(for-loop, listord.innerHTMl).
+Läggg till en parameter i skapaLista och ta "if x =='test' ändra de här orden istället."
+OK: nu har jag lagt till "test" på flera ord, och parameter i skapaLista som kollar om det är "practice" eller "test"
+Jag är rädd för att jag krånglar till koden nu.
+pga samma grej som tidigare så får jag göra en egen checkAnswer för test.
+
+message(popup) är samma som tidigare, att den visas i pracitce men är inte med i test. ID-problem.Sova nu.
+Lägger till "test" på id.
+lägger till parameter på function alertMessage ifall det är test eller practice.
+Eller vafan. kopiera funktionen, ändra namn till alertMessageTestm och ändra id där i bara.
+ELLER. gör en variabel som heter "mode", ändra den till test och practice beroende på.Ja.
+Om jag kör i xampp(localhost) måste jag shift-uppdatera(rensa cache) för att ändringarna i externa javascript-filen ska ske...
+Återgå till förhansgranska då.Kan ändå ha det liggandes i htdocs, är väl enklast att ha allt där?
+Borde kanske visserligen tänka på SSD-disken, och ha utvecklingen på HD.
+Samtidigt. är det noga?Skit i det nu.
+OK: nu funkar test som övning.
+Få det till ett test nu då.
+Skippa popupen, lagra om det är rätt eller fel bara.lol, då kunde jag ju skippat hela den här skiten.JAJA!.
+Där jag ändrat message, kan jag ju lägga till "var rättsvar++" typ. 
+Nej, alertMessage behövs ju inte ens användas i test.
+Kollar i checkAnswertest dårå.Byt ut alertMessage mot correctAnswers
+Kolla när det är sista frågan, då ska det ju ändras från "nästa fråga" till "rätta", och visa antal rätt svar.
+kanske använda array?börja med variabel, går fort och lätt.
+
+VISA RESULTAT:
+	Kanske bara kan köra en alert eller popupmessage.
+	Vill väl veta svar för varje fråga. Kanske typ "8/10 rätt!, se resultat för mer info"? 
+	börja med bara en alert som säger 8/10 rätt.
+Istället för att ändra value på "nästa fråga" till "rätta" så kanske det ska vara två olika knappar
+och visa den som ska visas för stunden. Då kan jag ju kalla på "showResult()"-funktion när klick på "rätta".
+Alert för att visa resultat känns inte bra, kan ju göra alertMessage som med "rätt/fel" bara.
+Ytterligare vill man väl som sagt kunna se resultat för varje fråga.
+Använd class alert(pga animation, .show). id="results".
+Nu har jag kopierat class popuptext css till #results. Det borde ju funka likadant, men nu visas inte results.
+Why?
+OK. det verkade som att id-css lästes över class(efter?) så den blev hidden även om den var av class show.
+lösning var att göra id results till class.
+nice! "pröva igen" borde finnas. men fixa till resultatet först kanske. men nu visas det iaf. 
