@@ -1,6 +1,6 @@
-var ordTyp = document.getElementById("typavOrd");
-var ordTyptest = document.getElementById("typavOrdtest");
-var listOrd = document.getElementsByClassName("listOrd");
+var wordType = document.getElementById("wordType");
+var wordTypetest = document.getElementById("wordTypetest");
+var listWord = document.getElementsByClassName("listWord");
 var mode;
 var correctAnswers = 0;
 var currentQuestion = 0;
@@ -21,13 +21,13 @@ function test(){
         var ord = ["substantiv", "verb", "adjektiv"];
         rand = Math.floor(Math.random() * 3);
 
-        ordTyptest.innerHTML = ord[rand];
-        skapaLista("test");
+        wordTypetest.innerHTML = ord[rand];
+        createList("test");
    }
    if(currentQuestion == numberOfQuestions){
         document.getElementById("testNextQuestion").style.display = "none";
         document.getElementById("testResultButton").style.display = "inline-block";
-        console.log("sista frågan");   
+        console.log("Last question");   
         console.log(correctAnswers);
     }
 }
@@ -53,13 +53,13 @@ document.getElementById("practice").style.display="block";
 var ord = ["substantiv", "verb", "adjektiv"];
 rand = Math.floor(Math.random() * 3);
 
-ordTyp.innerHTML = ord[rand];
-skapaLista("practice");
+wordType.innerHTML = ord[rand];
+createList("practice");
 }
-function skapaLista(x){
+function createList(x){
     addedSelectedClass = false;
-    for (var i = 0; i < listOrd.length; i++) {
-        listOrd[i].addEventListener('click', changeClass, false);
+    for (var i = 0; i < listWord.length; i++) {
+        listWord[i].addEventListener('click', changeClass, false);
     }
     
     if(addedSelectedClass == true){
@@ -77,20 +77,20 @@ function skapaLista(x){
             
     for(i=0; i<3; i++){
         rand = Math.floor(Math.random() * substantiv.length);
-        var randomLista = [substantiv[rand], verb[rand], adjektiv[rand]];
+        var randomList = [substantiv[rand], verb[rand], adjektiv[rand]];
     }
     
     //Blanda listan, sen ges ett värde.
-    randomLista.sort(function(a, b){return 0.5 - Math.random()}); 
+    randomList.sort(function(a, b){return 0.5 - Math.random()}); 
     for(i = 1; i<4; i++){
         rand = Math.floor(Math.random() * 3);
         if(x=="practice"){
-            listOrd = document.getElementById("listOrd" + i);      
-            listOrd.innerHTML = randomLista[i - 1];
+            listWord = document.getElementById("listWord" + i);      
+            listWord.innerHTML = randomList[i - 1];
         }
         else if(x=="test"){
-                listOrd = document.getElementById("listOrdtest" + i);      
-                listOrd.innerHTML = randomLista[i - 1];
+                listWord = document.getElementById("listWordtest" + i);      
+                listWord.innerHTML = randomList[i - 1];
                 }
         
     }
@@ -117,14 +117,14 @@ function checkAnswer() {
     answer = document.querySelector(".selected");
     
     
-    //Jämför ordTyp med listOrds array-parent(alltså vilken array den är i.)
+    //Jämför wordType med listWords array-parent(alltså vilken array den är i.)
     //kolla array.indexOf, se ifall ordet finns i det. Ifall inte, kolla nästa osv.
     //indexOf ger -1  ifall det inte hittar ordet.
     
     if(substantiv.indexOf(answer.innerHTML) >= 0){
         
         //kolla ifall det är rätt
-        if(ordTyp.innerHTML =="substantiv"){
+        if(wordType.innerHTML =="substantiv"){
             alertMessage(answer = "right");
             
         }
@@ -136,7 +136,7 @@ function checkAnswer() {
     }
     else if(verb.indexOf(answer.innerHTML) >= 0){
         
-        if(ordTyp.innerHTML =="verb"){
+        if(wordType.innerHTML =="verb"){
             alertMessage(answer = "right");
             
         }
@@ -148,7 +148,7 @@ function checkAnswer() {
     }    
     else if(adjektiv.indexOf(answer.innerHTML) >= 0){
         
-        if(ordTyp.innerHTML =="adjektiv"){
+        if(wordType.innerHTML =="adjektiv"){
             alertMessage(answer = "right");
             
         }
@@ -165,14 +165,14 @@ function checkAnswertest() {
     answer = document.querySelector(".selected");
     
     
-    //Jämför ordTyp med listOrds array-parent(alltså vilken array den är i.)
+    //Jämför wordType med listWords array-parent(alltså vilken array den är i.)
     //kolla array.indexOf, se ifall ordet finns i det. Ifall inte, kolla nästa osv.
     //indexOf ger -1  ifall det inte hittar ordet.
     
     if(substantiv.indexOf(answer.innerHTML) >= 0){
         
         //kolla ifall det är rätt
-        if(ordTyptest.innerHTML =="substantiv"){
+        if(wordTypetest.innerHTML =="substantiv"){
             //alertMessage(answer = "right");
             console.log("correct answer");
             correctAnswers++;
@@ -186,7 +186,7 @@ function checkAnswertest() {
     }
     else if(verb.indexOf(answer.innerHTML) >= 0){
         
-        if(ordTyptest.innerHTML =="verb"){
+        if(wordTypetest.innerHTML =="verb"){
             //alertMessage(answer = "right");
             console.log("correct answer");
             correctAnswers++;
@@ -200,7 +200,7 @@ function checkAnswertest() {
     }    
     else if(adjektiv.indexOf(answer.innerHTML) >= 0){
         
-        if(ordTyptest.innerHTML =="adjektiv"){
+        if(wordTypetest.innerHTML =="adjektiv"){
             //alertMessage(answer = "right");
             console.log("correct answer");
             correctAnswers++;
