@@ -136,3 +136,20 @@ ordTyp = wordType
 skapaLista(function) = createList
 randomLista = randomList
 substaniv osv är fortfarande svenska dock.
+
+RESULTAT:
+Ska resetas om man trycker på tillbaka. Borde också finnas typ "pröva igen".
+ska också ha resultat för varje fråga.
+Börja med reset.Reset klar!
+Resultat för varje fråga då. två arrayer borde användas, en för de rätta svaren och en för användarens svar.
+Vart bestäms rätt svar? Är det på ett "bra" ställe verkligen?
+Som det är nu verkar det inte lagras "rätt svar" direkt. Utan det kollas efter att användaren valt.
+Kollas ifall selected är samma som wordType, och är det inte det är det fel.
+i test() är det "wordTypetest.innerHTML = word[rand];" som bestämmer vilket sorts ord som ska väljas.
+Sedan i createList skapas själva listan.Här är det fortfarande inget bestämt om vilket som är rätt.
+checkAnswertest() kan jag ändra till att hantera svaren på annat sätt än checkAnswer()(som är för övning).
+Kanske enklast att när jag gör listan, skapar jag en variabel som lagrar rätt svar?
+i createList skapar jag en variabel  correctAnswer.
+addCorrectAnswers() avslutar jag det med. gör commit i github sen.
+
+
