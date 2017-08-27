@@ -128,3 +128,11 @@ Why?
 OK. det verkade som att id-css lästes över class(efter?) så den blev hidden även om den var av class show.
 lösning var att göra id results till class.
 nice! "pröva igen" borde finnas. men fixa till resultatet först kanske. men nu visas det iaf. 
+
+fixa till koden så alla ID/classes är på engelska.
+typavOrd = wordType
+listOrd = listWord
+ordTyp = wordType
+skapaLista(function) = createList
+randomLista = randomList
+substaniv osv är fortfarande svenska dock.
