@@ -18,10 +18,9 @@ function test(){
         document.getElementById("currentQuestion").innerHTML = currentQuestion;
         document.getElementById("menu").style.display="none";
         document.getElementById("test").style.display="block";
-        var ord = ["substantiv", "verb", "adjektiv"];
+        var word = ["substantiv", "verb", "adjektiv"];
         rand = Math.floor(Math.random() * 3);
-
-        wordTypetest.innerHTML = ord[rand];
+        wordTypetest.innerHTML = word[rand];
         createList("test");
    }
    if(currentQuestion == numberOfQuestions){
@@ -31,12 +30,26 @@ function test(){
         console.log(correctAnswers);
     }
 }
-
-function showResult(){
+function addCorrectAnswers(correctAnswer){
+    console.log("correct answer is: " + correctAnswer)
+    //parameter som tar in det rätta svaret
+    //lägger det i en array, som sedan kan skrivas ut. Kan ju använda mig av currentQuestion väl?
+    if (currentQuestion <= numberOfQuestions){
+        console.log("question number" + currentQuestion + " :" + correctAnswer); 
+    }
+     
+    
+}
+function showResults(){
     resultsMessage = document.getElementById("resultsMessage");
     resultsMessage.innerHTML ="Resultat:" + correctAnswers + "/" +numberOfQuestions;
     resultsMessage.classList.toggle("show");
-    //alert("resultat: " + correctAnswers + "/" +numberOfQuestions );
+}
+
+function resetResults(){
+    correctAnswers = 0;
+    resultsMessage.innerHTML = null; //kanske överflödigt med denna när jag ändå döljer det. 
+    resultsMessage.classList.remove("show");
 }
 
 
@@ -50,10 +63,10 @@ document.getElementById("menu").style.display="none";
 document.getElementById("practice").style.display="block";    
     
     
-var ord = ["substantiv", "verb", "adjektiv"];
+var word = ["substantiv", "verb", "adjektiv"];
 rand = Math.floor(Math.random() * 3);
 
-wordType.innerHTML = ord[rand];
+wordType.innerHTML = word[rand];
 createList("practice");
 }
 function createList(x){
@@ -65,6 +78,7 @@ function createList(x){
     if(addedSelectedClass == true){
         document.querySelector(".selected").classList.remove("selected");
     }
+    //Det här borde ju flyttas utanför funktionen.
      substantiv = ["Äpple", "Päron", "Bordskiva",
                     "Stege", "Boll","Dator",
                     "Hus", "Bil", "Cykel"];
@@ -74,11 +88,16 @@ function createList(x){
      adjektiv = ["Grön","Stark","Rolig",
                     "Snäll", "Elak", "Mjuk",
                     "Varm", "Kall", "Lång"];
-            
-    for(i=0; i<3; i++){
+     //Varför har jag gjort en for-loop här?Behövs väl inte?       
+    //for(i=0; i<3; i++){
         rand = Math.floor(Math.random() * substantiv.length);
         var randomList = [substantiv[rand], verb[rand], adjektiv[rand]];
-    }
+        //för test, gör jag här ett rätt svar. Kan bygga om övning att följa detta sedan också, om det blir bra.
+        rand = Math.floor(Math.random() * 3);
+        correctAnswer = [randomList[rand]];
+        addCorrectAnswers(correctAnswer);
+        //if det här ordets array är samma som wordTypes innerhtml, lagra det som rätt svar?
+    //}
     
     //Blanda listan, sen ges ett värde.
     randomList.sort(function(a, b){return 0.5 - Math.random()}); 
@@ -91,6 +110,8 @@ function createList(x){
         else if(x=="test"){
                 listWord = document.getElementById("listWordtest" + i);      
                 listWord.innerHTML = randomList[i - 1];
+                //lagra rätta svaren nu då.
+                
                 }
         
     }
@@ -163,12 +184,18 @@ function checkAnswertest() {
     console.log("checkAnswertest");
     //Kolla vilket id som har klass "selected".
     answer = document.querySelector(".selected");
+    //Kolla vad för sorts ord som ska vara rätt(alltså wordTypetest)
+    console.log("ordsort:" + wordTypetest.innerHTML);
+    correctWordType = wordTypetest.innerHTML;
+    //hitta det ordet som är av rätt typ. tips:nameOfArray.constructor 
+    console.log()
+    //lagra det ordet i en array av rätt svar.
+    
+
     
     
-    //Jämför wordType med listWords array-parent(alltså vilken array den är i.)
-    //kolla array.indexOf, se ifall ordet finns i det. Ifall inte, kolla nästa osv.
-    //indexOf ger -1  ifall det inte hittar ordet.
     
+    /*
     if(substantiv.indexOf(answer.innerHTML) >= 0){
         
         //kolla ifall det är rätt
@@ -212,7 +239,7 @@ function checkAnswertest() {
             
         }
     }
-    
+    */
 }
 
 
@@ -251,6 +278,7 @@ function myFunction() {
 function showMenu(){
     reset();
     resetValues();
+    resetResults();
     document.getElementById("practice").style.display="none";
     document.getElementById("test").style.display="none";
     document.getElementById("menu").style.display="block";
@@ -260,12 +288,12 @@ function showMenu(){
 }
 function reset(){
 
-//för att lösa bugg som gjorde att det ibland var en eller flera selected. kanske jag kan ta bort addedSelectedClass-grejen och använda denna istället?
+//för att lösa bugg som gjorde att det ibland var en eller flera selected.
     if(document.querySelector(".selected")){
         document.querySelector(".selected").classList.remove("selected");
     }
 }
 function resetValues(){
-    correctAnswers = 0;
+    //correctAnswers = 0;
     currentQuestion = 0;
 }
