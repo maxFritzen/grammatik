@@ -83,6 +83,10 @@ li:hover {
     top:35%;
     left:10%;
 }
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
 /* Popup text for right and wrong */
 .popuptext{
     display:inline-block;   
