@@ -55,7 +55,7 @@
             
             <h2>Välj ordet som är ett <br> <span id="wordTypetest">...</span></h2>
 
-    </div>
+    </div><!--/header -->
     <div id="list">
        <ul>
         <li class="listWord" id = "listWordtest1"></li>      
@@ -64,27 +64,33 @@
 
         </ul> 
 
-    </div>
+    </div><!--/list -->
 
 
     <div class="alert" >
 
-        <span class="results" id="resultsMessage">lol</span>
-    </div>
+        <div class="results" id="resultsMessage">results</div><!--/results -->
+        
+    </div><!--/alert -->
+    
     <div id="correct">
 
         <input type="button" value="Nästa fråga!" id="testNextQuestion" class="checkAnswerButton" onclick="checkAnswertest(); test();">  
         <input type="button" value="Rätta!" id="testResultButton" class="checkAnswerButton" onclick="checkAnswertest();showResults();">  
-    </div>
+    </div><!--/correct -->
+    
+    <div class="" id="detailedResults">
+        <table>
+            <tr><th>Fråga</th><th>Rätt svar</th><th>Användarens svar</th></tr>
+            <tr><td>Fråga 1</td><td>rättsvar</td><td>dittsvar</td></tr>
+        </table>
+        
+        </div><!--/detailedResults -->
     
 </div><!--/test -->
 </div><!--/wrapper-->
-<script type="text/javascript" src="js/index.js"></script>
 <script type="text/javascript" src="js/javaScript.js"></script>
-<script type="text/javascript">
-     //app.initialize(); den här behövs inte om inte app.
-    
-</script>
+
  
 </body>
 </html>

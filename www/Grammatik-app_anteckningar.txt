@@ -151,5 +151,54 @@ checkAnswertest() kan jag ändra till att hantera svaren på annat sätt än checkAn
 Kanske enklast att när jag gör listan, skapar jag en variabel som lagrar rätt svar?
 i createList skapar jag en variabel  correctAnswer.
 addCorrectAnswers() avslutar jag det med. gör commit i github sen.
+LOL. nu väljer den ju bara ett random ord och säger att det är rätt, inte ifall det stämmer överens med wordType.
+KAN ju dock göra så att jag väljer wordType beroende på correctAnswer. det kanske är enklast.Hmmm...
+skapar en correctTypeOfWord som wordTypetest.innerHTMl tar. 
+då borde jag kunna jämföra correctTypeOfWord med det valda ordets parent. eller? är lite snurrig nu.
 
+Jag skulle kunna göra såhär: object som heter"objectOfEverything" med properties som type:substantiv, words:"hus".
+
+Skulle också kunna leta igenom alla arrayer efter ordet, och se vilken det finns i.
+KAN också välja att kolla om första ordet är ex Äpple, då är det substantiv. MEN om jag ändrar första ordet måste den if-satsen ändras.
+
+loopa igenom alla känns ju som att det inte är så effektivt. 
+PRÖVAR göra object av orden.Nej. vafan. det känns fel.Loopa igenom allt dårå?
+rad 107 är jag och fastnar på nu.
+Vad hller jag på med nu?
+indexOf är det kanske jag borde använda. 
+Men vad är det jag vill göra nu, bestämma ett ord som är rätt och sedan välja wordType(alltså ifall verb,substantiv,adjektiv ska väljas).
+ÄR INNE PÅ LÖSNING:
+rad 130.
+Hmm, knas. Ok:
+När listan skapas:
+	välj ett av de orden som correctWord.
+	Kolla indexOf alla arrayerna if > -1
+	se vilken array ordet tillhör
+	välj wordTypetest.innerHTMl efter arrayen.
+
+OK: Nu har jag array correctWord som kollar vilka ord som är rätta, inte nödvändigtvis de användaren väljer.
+Så resultatsystemet funkar nu är med en variabel (correctAnwser) som adderas för varje rätt svar.
+Sedan visas det.
+Kanske ska jämföra correctWord-arrayen med userAnswers-array.
+För användaren spelar det faktiskt ingen roll.
+Men just för att kunna se"Rätta svar: ord,ord. Dina svar:ord ord,", 
+behövs ändå "userAnswers" lagras.
+
+Alternativen av ord har just nu inte med det rätta ordet, LOL.
+Fixa det. i decideWordType kan jag sätta värde på randomList[den aktuella ordTypen].
+
+tillbaka till usersAnswers!
+jag gör en rättningsfunktion som jämför correctWord med userAnswers.
+Sedan display i resultat.
+
+Hur vill jag göra med resultatet?
+
+För att skicka till Sigma(jobbet har med javascript att göra så lägg inte så mkt energi på det andra):
+rensa bort kod som inte används!
+mode, annvänds i alertMessage men bara för pracitce. alertmessagetest heter ju testfunktionen...
+addedSelectedClass behövs väl inte heller iom reset-funktion.
+kanske i changeClas(är det som gör dom selected).
+
+
+ta bort detailedResult?Äh, kan ju ha kvar men säga att det inte är klart än bara.
 
