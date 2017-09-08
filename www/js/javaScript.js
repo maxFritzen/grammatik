@@ -5,7 +5,7 @@ var word = ["substantiv", "verb", "adjektiv"];
 var correctAnswers = 0;
 var correctTypeOfWord;
 var currentQuestion = 0;
-var numberOfQuestions = 2;
+var numberOfQuestions = 5;
 var correctWord = []; //för att se de rätta svaren på test, inte de användaren valde.
 var userAnswers = []; //för att kunna visa/lagra användarens svar.
 var randomList = []; //väljer orden som användaren kan välja mellan.
@@ -27,7 +27,27 @@ function test(){
         document.getElementById("testResultButton").style.display = "inline-block";
         console.log("Last question");   
         console.log(correctAnswers);
+       
     }
+}
+
+function drawTableOfAnswers(rows){
+    var displayOfResults = document.getElementById("detailedResults");
+    var newHTMl = displayOfResults.innerHTML;
+    newHTMl += "<table>";
+    newHTMl += "<tr><th>Fråga</th><th>Rätt svar</th><th>Användarens svar</th></tr>";
+    
+    for (i = 0; i< rows; i++){
+        newHTMl += "<tr>";
+        
+            newHTMl += "<td>"+ (i + 1) +"</td>";
+            newHTMl += "<td>"+ correctWord[i] +"</td>";
+            newHTMl += "<td>"+ userAnswers[i] +"</td>";
+           
+        newHTMl += "</tr>";
+    }
+    newHTMl += "</table>";
+    displayOfResults.innerHTML = newHTMl;
 }
 function checkAnswertest() {
     //för test.
@@ -100,9 +120,9 @@ function decideWordType(randomWord){
 function showResults(){
     compareTwoArrays(correctWord,userAnswers);
     resultsMessage = document.getElementById("resultsMessage");
-    resultsMessage.innerHTML ="Resultat:" + correctAnswers + "/" +numberOfQuestions;
+    resultsMessage.innerHTML +=correctAnswers + "/" +numberOfQuestions;
     resultsMessage.classList.toggle("show");
-    
+    drawTableOfAnswers(numberOfQuestions);
 }
 
 function resetResults(){
